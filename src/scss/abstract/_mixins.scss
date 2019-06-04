@@ -1,0 +1,73 @@
+// Block styling
+@mixin block-style() {
+	background-color: rgba($color-blocks, 0.6);
+	border-radius: 2.5rem;
+}
+
+// Separator information's blocks
+@mixin line($left, $bottom, $width) {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 100%;
+	height: 0.1rem;
+	background-color: rgba($color-bg-1, 0.2);
+	width: $width;
+	left: $left;
+	bottom: $bottom
+}
+
+// Display flex + center all items
+@mixin flex-between-center {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+// Buttons hover
+@mixin btn-hover($color) {
+	background-color: $color;
+	transform: translateY(-3px);
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+
+// Buttons active
+@mixin btn-active {
+	transform: translateY(0px);
+	box-shadow: none;
+}
+
+@mixin task-line($color) {
+	position: absolute;
+	content: '';
+	display: block;
+	height: 2px;
+	width: 82%;
+	background-color: $color;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+// Media queries manager
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone-min {
+		@media only screen and (max-width: 25em) { @content }; 	//400px
+	}
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };   //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    	//1200px
+	}
+	@if $breakpoint == desktop {
+        @media only screen and (max-width: 87.5em) { @content };    //1400px
+	}
+    @if $breakpoint == big-desktop {
+        @media only screen and (max-width: 112.5em) { @content };   //1800px
+    }
+}
+

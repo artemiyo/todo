@@ -1,0 +1,64 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;  // 1rem = 10px;
+
+	@include respond(desktop) {
+		font-size: 55%;
+	}
+
+	@include respond(tab-land) {
+		font-size: 50%;
+	}
+
+	@include respond(phone) {
+		font-size: 40%;
+	}
+
+	@include respond(phone-min) {
+		font-size: 35%;
+	}
+}
+
+body {
+	box-sizing: border-box;
+	display: flex;
+	font-family: $font;
+	font-size: 2.5rem;
+	padding: 2rem;
+	background: linear-gradient(to right top, $color-bg-1, $color-bg-2);
+	height: 100vh;
+	color: $color-main;
+	letter-spacing: 0.035em;
+
+	@include respond(tab-land) {
+		flex-direction: column;
+		align-items: center;
+		padding: 4rem 2rem;
+		height: 120rem;
+	}
+}
+
+main {
+	margin-left: 2rem;
+	width: 73%;
+
+	@include respond(big-desktop) {
+		width: 70%;
+	}
+
+	@include respond(desktop) {
+		font-size: 65%;
+	}
+
+	@include respond(tab-land) {
+		width: 90%;
+		margin-left: 0;
+	}
+}

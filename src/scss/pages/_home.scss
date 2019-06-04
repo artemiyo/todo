@@ -1,0 +1,306 @@
+/* ===========================================================
+====================INFORMATION SIDEBAR ======================
+==============================================================*/
+
+.information {
+	padding: 5rem;
+	width: 27%;
+
+	@include block-style;
+
+	@include respond(desktop) {
+		width: 35%;
+	}
+
+	@include respond(tab-land) {
+		width: 90%;
+		padding: 3rem 7rem;
+		margin-bottom: 3rem;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+// Date
+.date {
+	text-align: center;
+	position: relative;
+	margin-bottom: 7rem;
+
+	@include respond(tab-land) {
+		margin-bottom: 3rem;
+		width: 100%;
+	}
+
+	&__time {
+		font-size: 4rem;
+		margin-top: 2rem;
+	}
+}
+
+// Tasks
+.total {
+	@include flex-between-center;
+	margin-bottom: 4rem;
+
+	&__num {
+		font-size: 3.5rem;
+	}
+}
+
+.tasks-information {
+	margin-bottom: 7rem;
+	position: relative;
+
+	@include respond(tab-land) {
+		margin-bottom: 3rem;
+	}
+
+	&__priorities {
+		margin-bottom: 4rem;
+	}
+
+	&__priority {
+		position: relative;
+		@include flex-between-center;
+		font-size: 1.5rem;
+		margin-left: 3rem;
+
+		&:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			display: block;
+			width: 1rem;
+			height: 1rem;
+			background-color: red;
+			border-radius: 50%;
+			left: -7%;
+		}
+
+		&:nth-child(2)::before {
+			background-color: $color-mid;
+		}
+
+		&:nth-child(3)::before {
+			background-color: $color-low;
+		}
+	}
+}
+
+// Efficiency block
+.efficiency {
+	@include flex-between-center;
+	flex-direction: column;
+
+	&__chart {
+		position: relative;
+		fill: rgba(0,0,0,0);
+		stroke: $color-chart;
+		stroke-width: 5;
+	}
+
+	&__diagram {
+		margin-top: 2rem;
+	}
+
+	&__perc {
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+/* ===========================================================
+======================== TASKS FIELD =========================
+==============================================================*/
+
+.add-task {
+	@include block-style;
+	height: 23rem;
+	padding: 5rem;
+	margin-bottom: 2rem;
+
+	@include respond(phone-min) {
+		padding: 3rem;
+	}
+}
+
+.add {
+
+	&__label {
+
+		&--right {
+			margin-right: 3.4rem;
+		}
+	}
+
+	&__block {
+		display: flex;
+		align-items: center;
+
+		&:first-child {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__input {
+		font-family: $font;
+		width: 93rem;
+		padding: 1.5rem;
+		border: none;
+		outline: none;
+		border-radius: 1.5rem;
+		color: $color-bg-1;
+		font-size: 2rem;
+		background-color: $color-main;
+		opacity: 0.5;
+		margin: 0 1.5rem;
+
+		@include respond(phone-min) {
+			width: 21rem;
+		}
+	}
+
+	&__btn {
+		width: 16rem;
+		height: 5.5rem;
+		border: 1px solid $color-low;
+		border-radius: 1.5rem;
+		background-color: transparent;
+		outline: none;
+		transition: all 0.3s ease;
+		cursor: pointer;
+
+		i {
+			color: $color-low;
+		}
+
+		&:hover {
+
+			@include btn-hover($color-low);
+
+			i {
+				color: $color-bg-1;
+			}
+		}
+
+		&:active {
+			@include btn-active 
+		}
+	}
+
+	
+	&__select-block {
+		position: relative;
+
+		i {
+			position: absolute;
+			font-size: 1.5rem;
+			color: $color-bg-1;
+			top: 37%;
+			left: 79.5%;
+			z-index: 10;
+		}
+
+		&:before {
+			position: absolute;
+			content: '';
+			display: block;
+			width: 1rem;
+			height: 1rem;
+			background-color: red;
+			border-radius: 50%;
+			z-index: 20;
+			top: 42%;
+			left: 11%;
+		}
+
+		&--red::before {
+			background-color: $color-high;
+		}
+
+		&--middle::before {
+			background-color: $color-mid;
+		}
+
+		&--low::before {
+			background-color: $color-low;
+		}
+}
+
+
+	&__select {
+		position: relative;
+		font-family: $font;
+		font-size: 2rem;
+		width: 15rem;
+		padding: 1.5rem 1.5rem 1.5rem 3.7rem;
+		border: none;
+		outline: none;
+		border-radius: 1.5rem;
+		color: $color-bg-1;
+		background-color: $color-main;
+		appearance: none;
+		opacity: 0.5;
+	}
+}
+
+// TASKS
+
+.tasks {
+
+	display: flex;
+	justify-content: space-between;
+
+	@include respond(tab-land) {
+		flex-direction: column
+	}
+
+	&__list {
+		width: 32.5%;
+
+		@include respond(tab-land) {
+			width: 100%;
+
+			&:not(:last-child) {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+
+	&__item {
+		position: relative;
+		@include flex-between-center;
+		@include block-style;
+		padding: 3.5rem;
+		margin-bottom: 2rem;
+		width: 100%;
+
+		&--high::after {
+			@include task-line($color-high);
+		}
+
+		&--middle::after {
+			@include task-line($color-mid);
+		}
+
+		&--low::after {
+			@include task-line($color-low);
+		}
+	}
+
+	&__text-block {
+		width: 25rem;
+	}
+}
+
+.hidden {
+
+	@include respond (tab-land) {
+		display: none;
+	}
+}

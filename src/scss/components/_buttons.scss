@@ -1,0 +1,62 @@
+.btn {
+
+	&__item {
+		background-color: transparent;
+		position: relative;
+		border: 1px solid $color-apply;
+		border-radius: 50%;
+		color: $color-apply;
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+		cursor: pointer;
+		outline: none;
+		transition: all 0.3s ease;
+		z-index: 1000;
+
+
+		&--red {
+			border: 1px solid $color-high;
+			color: $color-high;
+
+			&:hover {
+				@include btn-hover($color-high);
+				color: $color-main;
+			}
+		}
+
+		i {
+			font-size: 1.5rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&:active {
+			@include btn-active;
+		}
+
+		&:hover:not(:last-child) {
+			@include btn-hover($color-apply);
+			color: $color-main;
+		}
+	}
+}
+
+// This button open the information bar
+#openInfo {
+	display: none;
+	background-color: transparent;
+	font-size: 4rem;
+	color: $color-main;
+	border: none;
+	cursor: pointer;
+	outline: none;
+
+	@include respond(tab-land) {
+		display: block;
+		margin: 2rem auto 0 ;
+	}
+}
+

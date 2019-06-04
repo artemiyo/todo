@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<!-- Style Sheet -->
+	<link rel="stylesheet" href="css/style.css">
+	<title>TODO APP</title>
+</head>
+<body>
+	<!-- THE PANEL OF INFORMATION -->
+	<aside class="information">
+		<!-- DATE -->
+		<div class="date">
+			<p class="date__day"></p>
+			<p class="date__day-of-week"></p>
+			<p class="date__time"></p>
+			<button id="openInfo">
+				<i class="fas fa-caret-square-down"></i>
+			</button>
+		</div>
+		<!-- TASKS' INFORMATION -->
+		<div class="tasks-information">
+			<div class="total">
+				<h2 class="heading-secondary">Tasks</h2>
+				<span class="total__num" id="tasksNumber">0</span>
+			</div>
+			<ul class="tasks-information__priorities">
+				<li class="tasks-information__priority tasks-information__priority--high">
+					<p class="tasks-information__text">High priority</p>
+					<span class="tasks-information__num" data-priority="high">0</span>
+				</li>
+				<li class="tasks-information__priority tasks-information__priority--mid">
+					<p class="tasks-information__text">Middle priority</p>
+					<span class="tasks-information__num" data-priority="middle">0</span>
+				</li>
+				<li class="tasks-information__priority tasks-information__priority--low">
+					<p class="tasks-information__text">Low priority</p>
+					<span class="tasks-information__num" data-priority="low">0</span>
+				</li>
+			</ul>
+			<div class="total">
+				<h2 class="heading-secondary">Complete</h2>
+				<span class="total__num" id="complete">0%</span>
+			</div>
+		</div>
+		<div class="efficiency">
+			<h2 class="heading-secondary">Efficiency</h2>
+			<div class="efficiency__chart">
+				<span class="efficiency__perc">0%</span>
+				<svg width="160" height="160" class="efficiency__diagram"></svg>
+			</div>
+		</div>
+	</aside>
+
+	<!-- TASKS FIELD -->
+	<main>
+		<div class="add-task">
+			<form action="#" class="add">
+				<div class="add__block">
+					<label for="task" class="add__label">Add task</label>
+					<input type="text" class="add__input" id="task">
+					<button type="submit" class="add__btn" id="add">
+						<i class="fas fa-plus"></i>
+					</button>
+				</div>
+				<div class="add__block">
+					<label for="priority" class="add__label add__label--right">Priority</label>
+					<div class="add__select-block">
+						<i class="fas fa-chevron-down"></i>
+						<select name="Priority" class="add__select" id="priorityList">
+							<option class="add__option" value="high">High</option>
+							<option class="add__option" value="middle">Middle</option>
+							<option class="add__option" value="low">Low</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- TASKS  -->
+		<div class="tasks">
+
+			<!-- High priority tasks -->
+			<ul class="tasks__list" id="high">
+				<!-- <li class="tasks__item tasks__item--high">
+					<p class="tasks__text">Hello</p>
+					<div class="btn">
+						<button class="btn__item" data-action="done">
+							<i class="fas fa-check"></i>
+						</button>
+						<button class="btn__item btn__item--red" data-action="delete">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
+				</li> -->
+			</ul>
+
+			<!-- Middle priority tasks -->
+			<ul class="tasks__list" id="middle">
+				<!-- <li class="tasks__item tasks__item--middle">
+					<p class="tasks__text">Hello</p>
+					<div class="btn">
+						<button class="btn__item" data-action="done">
+							<i class="fas fa-check"></i>
+						</button>
+						<button class="btn__item btn__item--red" data-action="delete">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
+				</li> -->
+			</ul>
+
+			<!-- Low priority tasks -->
+			<ul class="tasks__list" id="low"></ul>
+		</div>
+	</main>
+
+	<!-- <script src="js/bundle.js"></script> -->
+</body>
+</html>
